@@ -25,4 +25,4 @@ cd ${GRPC_REPO_ROOT}
 
 source tools/internal_ci/helper_scripts/prepare_build_linux_rc
 
-$(dirname $0)/../run_bisect.sh
+../grpc-bisect-tool/run_bisect.sh
