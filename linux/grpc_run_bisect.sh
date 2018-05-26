@@ -15,12 +15,14 @@
 
 set -ex
 
+GRPC_REPO_ROOT=$(dirname $0)/../../grpc
+
 # clone the grpc/grpc repo
-git clone --recursive https://github.com/grpc/grpc $(dirname $0)/../grpc -o upstream
+git clone --recursive https://github.com/grpc/grpc ${GRPC_REPO_ROOT} -o upstream
 
 # change to grpc repo root
-cd $(dirname $0)/../grpc
+cd ${GRPC_REPO_ROOT)
 
 source tools/internal_ci/helper_scripts/prepare_build_linux_rc
 
-$(dirname $0)/run_bisect.sh
+$(dirname $0)/../run_bisect.sh
