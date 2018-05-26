@@ -18,19 +18,20 @@ set -ex
 pwd 
 
 git status
+git checkout master
 
-BAD_REVISION=HEAD
+BAD_REVISION=master
 # we assume the state a while ago is good
-GOOD_REVISION=$(git rev-parse 'HEAD@{3 months ago}')
+GOOD_REVISION=$(git rev-parse 'master@{3 months ago}')
 
 git checkout "${BAD_REVISION}"
 
 echo "Making sure that the test being bisected is failing on 'bad' revision"
-tools/failures/run_bisect_step.sh && (echo "run_bisect_step needs to fail on 'bad' revision."; exit 1)
+../run_bisect_step.sh && (echo "run_bisect_step needs to fail on 'bad' revision."; exit 1)
 
 # bisect between good and bad revisions.
 git bisect start "${BAD_REVISION}" "${GOOD_REVISION}" --
 
-git bisect run tools/failures/run_bisect_step.sh
+git bisect run ../run_bisect_step.sh
 
 git bisect reset       
