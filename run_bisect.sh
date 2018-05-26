@@ -15,9 +15,13 @@
 
 set -ex
 
-BAD_REVISION=upstream/master
+pwd 
+
+git status
+
+BAD_REVISION=HEAD
 # we assume the state a while ago is good
-GOOD_REVISION=$(git rev-parse 'upstream/master@{3 months ago}')
+GOOD_REVISION=$(git rev-parse 'HEAD@{3 months ago}')
 
 git checkout "${BAD_REVISION}"
 
