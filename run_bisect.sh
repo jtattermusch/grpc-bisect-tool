@@ -32,6 +32,6 @@ echo "Making sure that the test being bisected is failing on 'bad' revision"
 # bisect between good and bad revisions.
 git bisect start "${BAD_REVISION}" "${GOOD_REVISION}" --
 
-git bisect run ../run_bisect_step.sh
+git bisect run ../grpc-bisect-tool/run_bisect_step.sh
 
 git bisect reset       
