@@ -18,11 +18,11 @@ set -ex
 pwd 
 
 git status
-git checkout master
+git fetch upstream
 
-BAD_REVISION=master
+BAD_REVISION=upstream/master
 # we assume the state a while ago is good
-GOOD_REVISION=$(git rev-parse 'master@{3 months ago}')
+GOOD_REVISION=$(git rev-parse 'upstream/master@{3 months ago}')
 
 git checkout "${BAD_REVISION}"
 
