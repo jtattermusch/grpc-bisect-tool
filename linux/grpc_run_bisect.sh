@@ -21,7 +21,7 @@ GRPC_REPO_ROOT=$(dirname $0)/../../grpc
 git clone --recursive https://github.com/grpc/grpc ${GRPC_REPO_ROOT} -o upstream
 
 # change to grpc repo root
-cd ${GRPC_REPO_ROOT)
+cd ${GRPC_REPO_ROOT}
 
 source tools/internal_ci/helper_scripts/prepare_build_linux_rc
 
