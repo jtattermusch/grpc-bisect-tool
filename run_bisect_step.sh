@@ -23,7 +23,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'end2end_test.*End2endTest.ClientCancelsRequestStream' -n 500 -a 16 -j 40
 
-python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 1000 -a 30 -j 20
+python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
 
 #python tools/run_tests/run_tests.py -l c++ -c opt -t -r 'ClientLbEnd2endTest.RoundRobinSingleReconnect' -n 500 -a 4 -j 10
