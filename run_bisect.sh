@@ -22,7 +22,7 @@ GOOD_REVISION=$(git rev-list -1 --before="2018-03-01 00:00" upstream/master)
 git checkout "${BAD_REVISION}"
 
 echo "Making sure that the test being bisected is failing on 'bad' revision"
-../run_bisect_step.sh && (echo "run_bisect_step needs to fail on 'bad' revision."; exit 1)
+../grpc-bisect-tool/run_bisect_step.sh && (echo "run_bisect_step needs to fail on 'bad' revision."; exit 1)
 
 # bisect between good and bad revisions.
 git bisect start "${BAD_REVISION}" "${GOOD_REVISION}" --
