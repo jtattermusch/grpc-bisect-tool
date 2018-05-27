@@ -39,10 +39,9 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_compress_test.retry_streaming_succeeds_before_replay_finished" -n 3000 -a 16 -j 20
 
-python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_proxy_test.*max_message_length" -n 3000 -a 16 -j 20
+#python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_proxy_test.*max_message_length" -n 3000 -a 16 -j 20
 
-
-
+python tools/run_tests/run_tests.py -l c++ -c tsan --use_docker -t -r "PickFirstBackOffInitialReconnect" -n 3000 -a 16 -j 20
 
 
 # TODO: determine the right number of iterations
