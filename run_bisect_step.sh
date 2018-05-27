@@ -26,7 +26,10 @@ make clean  # sometimes necessary to prevent build breakages
 #python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
 
-python tools/run_tests/run_tests.py -l c++ -c opt -t -r 'ClientLbEnd2endTest.RoundRobinSingleReconnect' -n 2000 -a 4 -j 10
+#python tools/run_tests/run_tests.py -l c++ -c opt -t -r 'ClientLbEnd2endTest.RoundRobinSingleReconnect' -n 2000 -a 4 -j 10
+
+python tools/run_tests/run_tests.py -l c -c dbg -t -r 'h2_full_test.graceful_server_shutdown' -n 2000 -a 4 -j 10
+
 
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
