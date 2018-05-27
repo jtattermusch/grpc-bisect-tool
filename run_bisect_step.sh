@@ -21,11 +21,11 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
 
-#GRPC_ABORT_ON_LEAKS=1 python tools/run_tests/run_tests.py -l c++ -c asan -r 'End2endTest.ClientCancelsRequestStream/1' -n 500 -a 10 -j 20
+python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'end2end_test.*End2endTest.ClientCancelsRequestStream' -n 500 -a 16 -j 40
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
-python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_compress_test.retry_streaming_succeeds_before_replay_finished" -n 3000 -a 16 -j 20
+#python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_compress_test.retry_streaming_succeeds_before_replay_finished" -n 3000 -a 16 -j 20
 # TODO: determine the right number of iterations
 # TODO: determine the right regex to run
 
