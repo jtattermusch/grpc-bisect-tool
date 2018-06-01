@@ -33,7 +33,19 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c -c dbg -t -r 'h2_full_test.graceful_server_shutdown' -n 2000 -a 4 -j 10
 
-python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
+#python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
+
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
+python tools/run_tests/run_tests.py -l c -c dbg -j 2
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
