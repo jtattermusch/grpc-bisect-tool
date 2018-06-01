@@ -33,7 +33,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c -c dbg -t -r 'h2_full_test.graceful_server_shutdown' -n 2000 -a 4 -j 10
 
-
+python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
@@ -41,7 +41,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_proxy_test.*max_message_length" -n 3000 -a 16 -j 20
 
-python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 3000 -a 16 -j 20
+#python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 3000 -a 16 -j 20
 
 
 # TODO: determine the right number of iterations
