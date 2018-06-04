@@ -30,4 +30,7 @@ git bisect start "${BAD_REVISION}" "${GOOD_REVISION}" --
 
 git bisect run ../grpc-bisect-tool/run_bisect_step.sh
 
-git bisect reset       
+git bisect reset
+
+echo "Bisect ran with params: BAD_REVISION=${BAD_REVISION}, GOOD_REVISION=${GOOD_REVISION}"
+
