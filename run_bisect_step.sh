@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+set -ex
+
 git submodule update --init  # submodules might have been updated in the past
 make clean  # sometimes necessary to prevent build breakages 
 
@@ -41,11 +43,11 @@ python tools/run_tests/run_tests.py -l c -c dbg -j 2
 python tools/run_tests/run_tests.py -l c -c dbg -j 2
 python tools/run_tests/run_tests.py -l c -c dbg -j 2
 
-python tools/run_tests/run_tests.py -l c -c dbg -j 2
-python tools/run_tests/run_tests.py -l c -c dbg -j 2
-python tools/run_tests/run_tests.py -l c -c dbg -j 2
-python tools/run_tests/run_tests.py -l c -c dbg -j 2
-python tools/run_tests/run_tests.py -l c -c dbg -j 2
+#python tools/run_tests/run_tests.py -l c -c dbg -j 2
+#python tools/run_tests/run_tests.py -l c -c dbg -j 2
+#python tools/run_tests/run_tests.py -l c -c dbg -j 2
+#python tools/run_tests/run_tests.py -l c -c dbg -j 2
+#python tools/run_tests/run_tests.py -l c -c dbg -j 2
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
