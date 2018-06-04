@@ -16,7 +16,7 @@
 set -ex
 
 #BAD_REVISION=upstream/master
-BAD_REVISION=$(git rev-list -1 --before="2018-04-17 00:00" upstream/master)
+BAD_REVISION=66b9770a8ad326c1ee0dbedc5a8f32a52a604567
 # we assume the state a while ago is good
 GOOD_REVISION=$(git rev-list -1 --before="2018-03-15 00:00" upstream/master)
 
