@@ -43,9 +43,9 @@ python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
 python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
 python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
 
-#python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
-#python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
-#python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
 #python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
 #python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success
 
