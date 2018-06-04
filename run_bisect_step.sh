@@ -15,6 +15,8 @@
 
 set -ex
 
+CURRENT_COMMIT=$(git rev-parse HEAD)
+
 git submodule update --init  # submodules might have been updated in the past
 make clean  # sometimes necessary to prevent build breakages 
 
@@ -37,17 +39,17 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
 
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
 
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
