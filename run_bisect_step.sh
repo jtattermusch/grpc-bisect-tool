@@ -15,13 +15,16 @@
 
 set -ex
 
+CURRENT_COMMIT=$(git rev-parse HEAD)
+
 git submodule update --init  # submodules might have been updated in the past
+
 make clean  # sometimes necessary to prevent build breakages 
 
 # try to build, skipping broken builds
 #python tools/run_tests/run_tests.py -l c -c dbg --build_only  || exit 125
 
-python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 3000 --quiet_success -a 16 -j 20
+python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 100 --quiet_success -a 16 -j 20 -x $(CURRENT_COMMIT)_sponge_log.xml --report_suite_name $(CURRENT_COMMIT)
 
 
 # TODO: determine the right number of iterations
