@@ -26,7 +26,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 
 
-python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 2000 --quiet_success -a 16 -j 20 -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 10 --quiet_success -a 16 -j 20 -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
 
 
 # TODO: determine the right number of iterations
