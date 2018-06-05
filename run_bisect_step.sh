@@ -25,7 +25,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
 
-#python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'end2end_test.*End2endTest.ClientCancelsRequestStream' -n 500 -a 16 -j 40
+python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r 'h2_compress_test.retry_server_pushback_delay' -n 1000 -a 16 -j 20 --quiet_success -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
 
 #python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
@@ -38,18 +38,6 @@ make clean  # sometimes necessary to prevent build breakages
 #python tools/run_tests/run_tests.py -l c -c dbg -t -r 'h2_full_test.graceful_server_shutdown' -n 2000 -a 4 -j 10
 
 #python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
-
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_0/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_1/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_2/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_3/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_4/sponge_log.xml"
-
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_5/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_6/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_7/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_8/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 2 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_9/sponge_log.xml"
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
