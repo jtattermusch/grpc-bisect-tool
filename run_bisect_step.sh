@@ -25,7 +25,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
 
-python tools/run_tests/run_tests.py -l c -c tsan --compiler clang7.0 --use_docker -t -r 'workarounds_nosec_test.retry_too_many_attempts' -n 4000 -a 16 -j 40 --quiet_success -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c tsan --compiler clang7.0 --use_docker -t -r 'workarounds_nosec_test.retry_too_many_attempts' -n 10000 -a 40 -j 40 --quiet_success -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
 
 #python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
