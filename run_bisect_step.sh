@@ -39,23 +39,23 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
 
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_0/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_1/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_2/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_3/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_4/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_0/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_1/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_2/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_3/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_4/sponge_log.xml"
 
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_5/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_6/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_7/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_8/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_9/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_5/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_6/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_7/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_8/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_9/sponge_log.xml"
 
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_10/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_11/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_12/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_13/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success --regex_exclude fuzzer -x "tests_${CURRENT_COMMIT}_14/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_10/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_11/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_12/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_13/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c dbg -j 4 --quiet_success -x "tests_${CURRENT_COMMIT}_14/sponge_log.xml"
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
