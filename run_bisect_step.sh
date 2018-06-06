@@ -29,7 +29,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
 
-python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'ClientCancelsRequestStream' --force_use_pollers epollex -n 5000 -a 40 -j 40 --quiet_success -x ${REPORT_NAME}
+python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'ClientCancelsRequestStream' --force_use_pollers epollex -n 5000 -a 40 -j 40 --quiet_success -x "${REPORT_NAME}"
 
 #python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
