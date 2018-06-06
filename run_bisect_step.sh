@@ -15,7 +15,11 @@
 
 set -ex
 
-CURRENT_COMMIT=$(git rev-parse HEAD)
+CURRENT_SHA_SHORT=$(git show -s --format=%h)
+# if bisecting hasn't started yet, BISECT_STEP will be set to 0.
+BISECT_STEP=$(git bisect log | grep -e '^git bisect start' -e '^git bisect good' -e '^git bisect bad' | wc -l)
+
+REPORT_NAME="tests_step${BISECT_STEP}_${CURRENT_SHA_SHORT}/sponge_log.xml"
 
 git submodule update --init  # submodules might have been updated in the past
 make clean  # sometimes necessary to prevent build breakages 
@@ -39,23 +43,17 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
 
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_0/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_1/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_2/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_3/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_4/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
 
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_5/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_6/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_7/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_8/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_9/sponge_log.xml"
-
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_10/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_11/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_12/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_13/sponge_log.xml"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x "tests_${CURRENT_COMMIT}_14/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
 
 #python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
 
