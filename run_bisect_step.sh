@@ -15,7 +15,11 @@
 
 set -ex
 
-CURRENT_COMMIT=$(git rev-parse HEAD)
+CURRENT_SHA_SHORT=$(git show -s --format=%h)
+# if bisecting hasn't started yet, BISECT_STEP will be set to 0.
+BISECT_STEP=$(git bisect log | grep -e '^git bisect start' -e '^git bisect good' -e '^git bisect bad' | wc -l)
+
+REPORT_NAME="tests_step${BISECT_STEP}_${CURRENT_SHA_SHORT}/sponge_log.xml"
 
 git submodule update --init  # submodules might have been updated in the past
 make clean  # sometimes necessary to prevent build breakages 
@@ -25,7 +29,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
 
-python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'ClientCancelsRequestStream' --force_use_pollers epollex -n 5000 -a 40 -j 40 --quiet_success -x "tests_${CURRENT_COMMIT}/sponge_log.xml"
+python tools/run_tests/run_tests.py -l c++ -c asan --use_docker -t -r 'ClientCancelsRequestStream' --force_use_pollers epollex -n 5000 -a 40 -j 40 --quiet_success -x ${REPORT_NAME}
 
 #python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
