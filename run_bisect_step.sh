@@ -17,7 +17,7 @@ set -ex
 
 CURRENT_SHA_SHORT=$(git show -s --format=%h)
 # if bisecting hasn't started yet, BISECT_STEP will be set to 0.
-BISECT_STEP=$(git bisect log | grep -e '^git bisect start' -e '^git bisect good' -e '^git bisect bad' | wc -l)
+BISECT_STEP=$(git bisect log | grep -e '^git bisect start' -e '^git bisect good' -e '^git bisect bad' | wc -l | tr -d ' \n')
 
 REPORT_NAME="tests_step${BISECT_STEP}_${CURRENT_SHA_SHORT}/sponge_log.xml"
 
