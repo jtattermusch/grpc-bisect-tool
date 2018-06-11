@@ -15,9 +15,9 @@
 
 set -ex
 
-BAD_REVISION=$(git rev-list -1 --before="2017-12-01 00:00" upstream/master)
+BAD_REVISION=upstream/master
 # we assume the state a while ago is good
-GOOD_REVISION=$(git rev-list -1 --before="2017-10-01 00:00" upstream/master)
+GOOD_REVISION=$(git rev-list -1 --before="2018-06-01 00:00" upstream/master)
 
 git checkout "${BAD_REVISION}"
 
