@@ -29,7 +29,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
 
-python tools/run_tests/run_tests.py -l c -c dbg --use_docker -t -r 'dns_resolver_cooldown_test' -n 1000 -a 40 -j 40 --quiet_success -x "${REPORT_NAME}"
+python tools/run_tests/run_tests.py -l c -c dbg --use_docker -t -r 'dns_resolver_cooldown_test' -n 3000 -j 40 --quiet_success -x "${REPORT_NAME}"
 
 #python tools/run_tests/run_tests.py -l c -c opt --use_docker -t -r 'httpcli_test' -n 2000 -a 40 -j 30
 
