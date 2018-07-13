@@ -45,7 +45,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
 
-python tools/run_tests/run_tests.py -l c -c tsan --compiler clang7.0 --use_docker -j 20 --quiet_success -x "${REPORT_NAME}" -r handshake_verify_peer_options --force_use_pollers epoll1 -n 500
+python tools/run_tests/run_tests.py -l c -c tsan --compiler clang7.0 --use_docker -t -j 20 --quiet_success -x "${REPORT_NAME}" -r handshake_verify_peer_options --force_use_pollers epoll1 -n 500
 
 # TODO: determine the right number of iterations
 # TODO: determine the right regex to run
