@@ -25,6 +25,8 @@ git submodule update --init  # submodules might have been updated in the past
 make clean  # sometimes necessary to prevent build breakages 
 
 # try to build, skipping broken builds
+
+
 #python tools/run_tests/run_tests.py -l c -c dbg --build_only  || exit 125
 
 #python tools/run_tests/run_tests.py -l c++ -c asan --build_only  || exit 125
@@ -43,26 +45,7 @@ make clean  # sometimes necessary to prevent build breakages
 
 #python tools/run_tests/run_tests.py -l c++ -c dbg -t -r 'grpclb_end2end_test.*SingleBalancerTest.SecureNaming' -n 2000 -a 4 -j 10
 
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-python tools/run_tests/run_tests.py -l c -c opt -j 2 --quiet_success --regex_exclude percent_decode_fuzzer_one_entry -x ${REPORT_NAME}"
-
-#python tools/run_tests/run_tests.py -l c -c tsan --build_only  || exit 125
-
-#python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_compress_test.retry_streaming_succeeds_before_replay_finished" -n 3000 -a 16 -j 20
-
-#python tools/run_tests/run_tests.py -l c -c tsan --use_docker -t -r "h2_proxy_test.*max_message_length" -n 3000 -a 16 -j 20
-
-#python tools/run_tests/run_tests.py -l c++ -c dbg --use_docker -t -r ".*RpcDeadlineExpires" -n 3000 -a 16 -j 20
-
+python tools/run_tests/run_tests.py -l c -c tsan --use_docker -j 20 --quiet_success -x ${REPORT_NAME}" -r handshake_verify_peer_options --force_use_pollers epoll1 -n 500
 
 # TODO: determine the right number of iterations
 # TODO: determine the right regex to run
